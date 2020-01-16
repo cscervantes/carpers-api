@@ -1,16 +1,8 @@
-const extract = require('../../../extractor')
+const { SCRAPE_CONTROLLER } = require('../../../controller')
 
 module.exports = async (router) => {
 
-    router.get('/scrape', (req, res, next) => {
-        try{
-            // console.log(req)
-            res.status(200).send(req.originalUrl)
-        }catch(e){
-            console.log(e)
-            next(e)
-        }
-    });
+    router.get('/scrape', await SCRAPE_CONTROLLER.Home);
 
-    router.post('/scrape/validate', await extract)
+    router.post('/scrape/validate', await SCRAPE_CONTROLLER.Validate)
 }
