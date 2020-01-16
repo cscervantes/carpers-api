@@ -12,5 +12,6 @@ router.get('/', function(req, res, next) {
 });
 
 require('./scrape')(router)
+require('./account')(router)
 
 module.exports = router;
